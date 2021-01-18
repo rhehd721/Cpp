@@ -4,13 +4,11 @@
 ``` cpp
 #include <iostream> // c언어에서 stdio.h
 
-
 ``` 
 ---
 ## namespace
 ``` cpp
 using namespace + <namespace>; // 코드에서 사용할 namespace를 미리 알려주여 namespace 생략 가능
-
 
 ``` 
 ---
@@ -156,24 +154,31 @@ using namespace std;
 
 class Color{
     public:
-    Color() : r(0), g(0), b(0) {}
-    Color(float r,float g,float b) : r(r), g(g), b(b) {}
+    Color() : r(0), g(0), b(0), id(idCnt++) {}
+    Color(float r,float g,float b) : r(r), g(g), b(b), id(idCnt++) {}
 
     float GetR() {return r;}
     float GetG() {return g;}
     float GetB() {return b;}
+    
+    float GetId() {return id;}
 
     static Color MixColors(Color a, Color b){
     
     return Color((a.GetR() + b.GetR()) /2, (a.GetG() + b.GetG()) /2,(a.GetB() + b.GetB()) /2);
+    
+    static int idCnt;
 }
 
 private:
     float r;
     float g;
     float b;
-
+    
+    int id;
 };
+
+int Color::idCnt = 1;
 
 int main(){
 
@@ -183,6 +188,10 @@ int main(){
     Color purple = Color::MixColors(blue, red);
 
     cout << "r = " << purple.GetR() << "\ng =" << purple.GetG() << "\nb = " << purple.GetB() << endl;
+    
+    cout << "blue.GetId() = " << blue.GetId() << endl;
+    cout << "red.GetId() = " << red.GetId() << endl;
+    cout << "purple.GetId() = " << purple.GetId() << endl;
 
     return 0;
 
