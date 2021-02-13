@@ -57,13 +57,14 @@ class의 경우 자동으로 private상황을 만들어주어 public만 입력�
 using namespace std;
 
 class MyClass{
+public:
     void PrintThis(){
         cout << "나의 주소는" << this << endl;
     }
 };
 
 int main(){
-    MyClass a,b
+    MyClass a,b;
     
     cout << "a의 주소는" << &a << endl;
     cout << "b의 주소는" << &b << endl;
@@ -71,6 +72,10 @@ int main(){
     a.PrintThis();
     b.PrintThis();
 }
+// a의 주소는0x7ffeefbff488
+// b의 주소는0x7ffeefbff480
+// 나의 주소는0x7ffeefbff488
+// 나의 주소는0x7ffeefbff480
 ``` 
 this는 자신이 소속되어 있는 객체의 주솟값을 받는다.
 
