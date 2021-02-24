@@ -5,7 +5,7 @@
 ## Library
 ``` cpp
 #include <iostream> // c언어에서 stdio.h
-#incluse <string> // 문자열을 사용하게 해주는 라이
+#include <string> // 문자열을 사용하게 해주는 라이
 
 ``` 
 ---
