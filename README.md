@@ -6,17 +6,19 @@
 ``` cpp
 #include <iostream> // c언어에서 stdio.h
 #include <string> // 문자열을 사용하게 해주는 라이
-
 ``` 
 ---
 ## namespace
 ``` cpp
 using namespace + <namespace>; // 코드에서 사용할 namespace를 미리 알려주여 namespace 생략 가능
-
+``` 
+Ex
+``` cpp
+using namespace std;
 ``` 
 ---
 
-## 함수명 중복
+## 함수명 중복(Overload)
 ``` cpp
 #include <iostream>
 
@@ -33,12 +35,13 @@ int main(){
     drawRectangle(1,2,3);
 }
 ```
-위 코드와 같이 함수명이 중복될 수 있으나 매개변수의 개수가 달라야 하며 default parameter가 마지막에 존재해야 한다.
+위 코드와 같이 함수명이 중복될 수 있으나 매개변수의 타입 or 갯수가 달라야 하며 default parameter는 마지막에 존재해야 한다.
 
 
 ---
 
 ## private, public
+캡슐화를 이용하여 사용자가 내부에 접근하는것을 막는다.
 ``` cpp
 // 전역으로 사용
 public:
@@ -55,6 +58,13 @@ class의 경우 자동으로 private상황을 만들어주어 public만 입력�
 ---
 
 ## this
+Class안 멤버함수 Class Object 마다 메모리에 할당되는것이 아닌 
+
+대표로 하나의 메모리만이 할당된다 그렇기 때문에 보이지않는 포인터 
+
+this를 이용하여 주솟값을 받아온다.
+
+this는 자신이 소속되어 있는 객체의 주솟값을 받는다.
 ``` cpp
 #include <iostream>
 
@@ -81,13 +91,15 @@ int main(){
 // 나의 주소는0x7ffeefbff488
 // 나의 주소는0x7ffeefbff480
 ``` 
-this는 자신이 소속되어 있는 객체의 주솟값을 받는다.
 
 모든 class나 struct 안에 멤버 함수들은 보이지 않는 매개변수(*this)를 가지고 있다.
 
 ---
 
 ## 생성자, 소멸자
+생성자와 소멸자는 객체가 생성되고 소멸될 때 호출되는 함수를 말한다.
+* 생성자 : 멤버 변수의 초기화에 사용(오버로딩 가능)
+* 소멸자 : 메모리 해제
 ``` cpp
 class MyClass{
 public:
@@ -113,9 +125,6 @@ private:
     double imag;
 };
 ``` 
-생성자와 소멸자는 객체가 생성되고 소멸될 때 각각 나타난다.
-
-생성자 : 멤버 변수의 초기화에 사용(오버로딩 가능)
 
 * 응용
 
@@ -157,6 +166,7 @@ int main(){
 ---
 
 ## Static
+전역으로 사용하고 싶고 Class와 밀접한 관계가 있거나 private 멤버 변수에 접근이 필요한 함수일 경우
 ``` cpp
 #include <iostream>
 
