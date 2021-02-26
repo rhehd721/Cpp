@@ -1,5 +1,8 @@
 # C++
 
+## 기본용어
+메소드(method) == 멤버 함수(member function)
+
 [Algorithm](https://github.com/rhehd721/Cpp/tree/master/Algorithm)
 
 ## Library
@@ -218,5 +221,44 @@ int main(){
 }
 ``` 
 
----
+## Const
+```cpp
+const int a = 10;
+a = 20; // error!
+```
+포인터 const
+```cpp
+int value = 5, value2 = 11;
+const int * ptr = &value;
+// *ptr = 10; // error! can't change const value
+value = 10; // ok!
+std::cout << value << " " << *ptr << std::endl; // 10 10
+value = 7;
+ptr = &value2;
+std::cout << value << " " << *ptr << std::endl; // 7 11
+```
+함수 const
+```cpp
+ int def() cont {
+     num++; // error
+     // 함수에 const사용시 멤버변수의 값 변경 불가
+ }
+ private:
+    int num;
+ ```
 
+## 연산자 오버로딩
+operator(+, -, *, /)
+
+## 동적할당
+```cpp
+int* arr = new int(3);
+int* array1 = new int[5] { 9, 7, 5, 3, 1 };
+char* array2 = new char[14] { "Hello, world!" };
+int* dynamicArray1 = new int[] {1, 2, 3};
+
+delete arr;
+delete[] array1;
+delete[] array2;
+delete[] dynamicArray;
+```
