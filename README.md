@@ -262,3 +262,32 @@ delete[] array1;
 delete[] array2;
 delete[] dynamicArray;
 ```
+
+## 깊은복사 vs 얕은복사
+1. 깊은복사 : 메모리 주소에 할당된 데이터를 복사
+2. 얕은복사 : 메모리 주소만 참조
+
+## vector
+vector 생성
+```cpp
+# include <vector>
+vector<int> v;  // 비어있는 vector v를 생성합니다.
+
+vector<int> v(5);   // 기본값(0)으로 초기화 된 5개의 원소를 가지는 vector v를 생성합니다.
+
+vector<int> v(5, 2);    // 2로 초기화된 5개의 원소를 가지는 vector v를 생성합니다.
+
+// v2는 v1 vector를 복사해서 생성됩니다.
+vector<int> v1(5, 2);
+vector<int> v2(v1);
+```
+vector<int> v1; , vector<int> v2;  가 있고, 내부에 인자들이 있다고 했을때.
+
+연산자 : "==", "!=", "<", ">", "<=", ">=" 로 대소비교 가 가능합니다.
+
+vector 사용
+* idx번째 원소 참조 : v.at(idx); 
+* 모든원소 제거하고 메모리는 남아있습니다. : v.clear(); 
+* 마지막 원소 뒤에 원소 n을 삽입합니다. : v.push_back(n);
+* n개의 원소를 저장할 위치를 예약합니다(미리 동적할당 해놉니다) : v.reserve(n);
+* 원소의 갯수를 리턴한다 : v.size();
