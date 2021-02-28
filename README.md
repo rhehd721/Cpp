@@ -9,6 +9,8 @@
 ``` cpp
 #include <iostream> // c언어에서 stdio.h
 #include <string> // 문자열을 사용하게 해주는 라이
+#include <vector> // vector
+#include <algorithm> // sort, 
 ``` 
 ---
 ## namespace
