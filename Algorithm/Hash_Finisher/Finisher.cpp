@@ -7,31 +7,35 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <algorithm>
 
 using namespace std;
 
 string solution(vector<string> participant, vector<string> completion) {
     string answer = ""; // 초기화
+    sort(participant.begin(), participant.end());
+    sort(completion.begin(), completion.end());
 
-    int total = 0; 
-    for (int j(0); j < participant.size(); j++){
-        total += j;
+    int a = 0;
+
+    if (participant.size() == 1){
+        return answer = participant.at(0);
     }
 
-    bool check = false;
-
-    for (string i : completion){
-        for (int j(0); j < participant.size(); j++){
-            bool check = false;
-            if (participant[j] == i){
-                total -= j;
-                check = true;
-                break;
+    for (int i = 0; i < completion.size(); i++){
+        if (participant.at(i) != completion.at(i)){
+            a = 1;
+        }
+        if(a == 1){
+            answer = participant.at(i);
+            break;
+        }
+        if(i == completion.size() - 1){
+            if(a != 1){
+                answer = participant.at(participant.size()-1);
             }
         }
     }
-
-    cout << answer << endl;
     return answer;
 }
 
@@ -44,7 +48,6 @@ int main(){
     completion.push_back("eden");
     completion.push_back("kiki");
 
-    cout << solution(participant, completion) << endl;
 
     // cout << participant[0] << ':' << participant[1] << ':'<< participant[2] << endl;
 
