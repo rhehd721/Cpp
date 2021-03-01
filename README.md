@@ -288,8 +288,63 @@ vector<int> v1; , vector<int> v2;  가 있고, 내부에 인자들이 있다고 
 연산자 : "==", "!=", "<", ">", "<=", ">=" 로 대소비교 가 가능합니다.
 
 vector 사용
-* idx번째 원소 참조 : v.at(idx); 
-* 모든원소 제거하고 메모리는 남아있습니다. : v.clear(); 
-* 마지막 원소 뒤에 원소 n을 삽입합니다. : v.push_back(n);
-* n개의 원소를 저장할 위치를 예약합니다(미리 동적할당 해놉니다) : v.reserve(n);
-* 원소의 갯수를 리턴한다 : v.size();
+* v.at(idx) : 백터의 i번째 요소 접근 (범위 검사함)
+* v.[i] (operator []) : 백터의 i번째 요소 접근 (범위 검사 안함) 
+* v.front() : 백터의 첫번째 요소 접근 
+* v.back() : 백터의 마지막 요소 접근
+```cpp
+vector<int> v = { 1, 2, 3, 4};
+ 
+cout << v.front() << endl;        //output : 1
+cout << v.back() << endl;        //output : 4
+cout << v.at(1) << endl;        //output : 2
+cout << v[2] << endl;            //output : 3
+```
+* v.begin() : 백터 시작점의 주소 값 반환
+* v.end() : 백터 (끝부분 + 1) 주소값 반환
+* v.clear() : 모든원소 제거하고 메모리는 남아있다.
+* v.push_back(n) : 백터의 마지막 부분에 n 추가 
+* v.pop_back() : 백터의 마지막 부분 제거 
+* v.insert(삽입할 위치의 주소 값, 변수 값) : 사용자가 원하는 위치에 요소 삽입 
+* v.emplace(삽입할 위치의 주소 값, 변수 값) : 사용자가 원하는 위치에 요소 삽입(move로 인해 복사생성자 X) 
+* v.erase(삭제할 위치) or v.erase(시작위치, 끝위치) : 사용자가 원하는 index값의 요소를 지운다.
+* v.clear() : 백터의 모든 요소를 지운다.(return size = 0)
+* v.resize(수정 값) : 백터의 사이즈를 조정한다.(범위 초과시 0으로 초기화) 
+* v.swap(백터 변수) : 백터와 백터를 스왑한다. 
+```cpp
+#include <vector>
+ 
+int main(){
+    vector<int> v;
+ 
+    v.push_back(10);
+    v.push_back(20);        //v = { 10, 20 }
+ 
+    v.inset(v.begin() + 1, 100);     // v = { 10, 100, 20 }
+ 
+    v.pop_back();        // v = { 10, 100 }
+ 
+    v.emplace_back(1);    //v = { 10, 100, 1 }
+    v.emplace_back(2);    //v = { 10, 100, 1, 2 }
+    v.emplace(v.begin() + 2, -50);    //v = { 1, 100, -50, 1, 2 }
+ 
+    v.erase(v.begin() + 1); // v = { 1, -50, 1, 2 }
+    v.resize(6);    // v = { 1, -50, 1, 2, 0, 0 }
+    v.clear();    // v = empty()     
+}
+```
+
+
+
+
+
+
+
+
+* v.rbegin() (revers begin) : 백터의 끝 지점을 시작점으로 반환 
+
+* v.rend() (revers end) : 백터의 (시작 + 1) 지점을 끝 부분으로 반환 
+
+* v.size() : 원소의 갯수를 반환
+
+* v.reserve(n) : n개의 원소를 저장할 위치를 예약 (미리 동적할당)
