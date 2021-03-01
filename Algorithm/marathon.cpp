@@ -11,9 +11,9 @@
 using namespace std;
 
 string solution(vector<string> participant, vector<string> completion) {
-    string answer = "";
+    string answer = ""; // 초기화
 
-    int total = 0;
+    int total = 0; 
     for (int j(0); j < participant.size(); j++){
         total += j;
     }
