@@ -333,18 +333,7 @@ int main(){
     v.clear();    // v = empty()     
 }
 ```
-
-
-
-
-
-
-
-
 * v.rbegin() (revers begin) : 백터의 끝 지점을 시작점으로 반환 
-
 * v.rend() (revers end) : 백터의 (시작 + 1) 지점을 끝 부분으로 반환 
-
 * v.size() : 원소의 갯수를 반환
-
 * v.reserve(n) : n개의 원소를 저장할 위치를 예약 (미리 동적할당)
