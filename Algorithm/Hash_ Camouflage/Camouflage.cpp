@@ -65,7 +65,6 @@ int solution(vector<vector<string> > clothes) {
                 else{   // 두번째부턴 값 추가로 더하기
                     NumberofEachType[index] += clothes[i].size()-1;
                 }
-                
              }
         }
     }
