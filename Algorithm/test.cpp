@@ -33,11 +33,11 @@ int solution(vector<vector<string> > clothes) {
         }
         else{
             for (string inList : ClothesList){
-                if (inList == clothes[i][clothes[i].size()-1]){ // ClothesList안에 같은 종류의 의상이 있다면 break
+                if (inList == clothes[i][clothes[i].size()-1]){ // ClothesList안에 같은 종류의 의상이 있다면 check++
                     check++;
                 }
             }
-            if (check == 0){
+            if (check == 0){    // 새로운 종류라면 List에 추가
                 ClothesList.push_back(clothes[i][clothes[i].size()-1]);
             }
             else{
