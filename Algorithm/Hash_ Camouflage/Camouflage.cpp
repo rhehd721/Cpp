@@ -76,22 +76,15 @@ int solution(vector<vector<string> > clothes) {
         answer += NumberofEachType[0];
         return answer;
     }
-    else if (NumberofEachType.size() == 2){
-        for (int i : NumberofEachType){
-            result *= i;
-            answer += i;
-        }
-        // result *= NumberofEachType.size()-1;
-        return result + answer;
-    }
     else{
+        for(int j = NumberofEachType.size(); j > 0; j--){
+            result *= j;
+        }
         for (int i : NumberofEachType){
-            result *= i+1;
             answer += i;
         }
         // result *= NumberofEachType.size()-1;
         return result + answer;
-
     }
 
     return -1;
