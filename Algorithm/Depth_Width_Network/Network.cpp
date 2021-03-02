@@ -17,33 +17,44 @@ using namespace std;
 
 int solution(int n, vector<vector<int> > computers) {
     int answer = 0;
+    int check = 0;
 
+    const int computerNum = n;
+
+    vector<int> Total;
+    Total.resize(n);
+
+    for (int i = 0; i < n; i++){
+        for (vector<int> com : computers){
+            Total[i] += com[i];
+        }
+    }
+
+    vector<int> result;
+    result.resize(n);
     
+    for (int i =0; i < n; i++){
+        for (int j =0; j < n; j++){
+            if( i+1 == Total[j]){
+                result[i]++;
+            }
+        }
+    }
 
-
-
-
-    // for (int computersIdx = 0; computersIdx < computers.size(); computersIdx++){
-    //     for (vector<int> com : computers){
-    //         for (int j = 0; j < n; j++){
-    //             if (computersIdx == j){
-    //                 continue;
-    //             }
-    //             else{
-    //                 if (){
-    //                     return 1;
-    //                 }
-    //                 else if(){
-    //                     return 0;
-    //                 }
-
-    //             }
-    //         }
-    //     }
-    // }
-
+    answer += result[0];
+    for (int i =0; i < n; i++){
+        if (i == 0){
+            continue;
+        }
+        else{
+            if(result[i] >= 2){
+                answer++;
+            }
+        }
+    }
 
     cout << answer << endl;
+    
     return answer;
 }
 
@@ -71,10 +82,16 @@ int main(){
 
     computers.push_back(middle);
 
+    cout << "1번 문제" << endl;
+
     solution(n, computers);
     
     // return 2
 
+    computers.clear();
+
+    middle.clear();
+
     middle.push_back(1);
     middle.push_back(1);
     middle.push_back(0);
@@ -96,6 +113,8 @@ int main(){
     middle.push_back(1);
 
     computers.push_back(middle);
+
+    cout << "2번 문제" << endl;
 
     solution(n, computers);
 
