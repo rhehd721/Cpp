@@ -1,3 +1,5 @@
+// 미완성
+
 // 제한사항
 // 전체 학생의 수는 2명 이상 30명 이하입니다.
 // 체육복을 도난당한 학생의 수는 1명 이상 n명 이하이고 중복되는 번호는 없습니다.
@@ -14,35 +16,37 @@ using namespace std;
 
 int solution(int n, vector<int> lost, vector<int> reserve) {
     int answer = 0;
-    answer = n - lost.size();   // 체육복을 잊어버리지 않은 학생들
+    answer = n - lost.size();   // 체육복을 잃어버리지 않은 학생들
 
     int recv;
-    recv = 0;   // 체육복을 다른 친구에게 받은 학생
+    recv = 0;   // lost를 탈출한 명단
 
-    for (int lo : lost){    // 체육복 여벌이 있으면서 잃어버린 친구들 구하기
-        for (int i =0; i < reserve.size(); i++){
-            if (lo == reserve[i]){
-                for (int j =0; j < reserve.size(); j++){ // 여벌 보유자 명단에서 삭제
-                    if (reserve[i] == reserve[j]){
-                        reserve.erase(reserve.begin() + j);
+    vector<int> lost_copy = lost;
+
+    for (int lo : lost){    // 체육복 여벌이 있으면서 잃어버린 친구들 (즉, 자기 자신에개 주어야되는 사람)
+    // cout << "lo : " << lo << endl;
+        for (int i =0; i < reserve.size(); i++){    // 여벌있는 명단 돌기
+            if (lo == reserve[i]){  // 잃어버린 사람 == 여벌 보유자
+                reserve.erase(reserve.begin() + i); // 여벌 보유자 명단에서 삭제
+                for (int j =0; j < lost_copy.size(); j++){   // 잃어버린 명단에서 삭제
+                    if (lo == lost_copy[j]){
+                        lost_copy.erase(lost_copy.begin() + j);
+                        break;
                     }
                 }
-                for (int j =0; j < lost.size(); j++){   // 잃어버린 명단에서 삭제
-                    if (lo == lost[j]){
-                        lost.erase(lost.begin() + j);
-                    }
-                }
-                recv++; // 체육복 생긴사람 ++
-                i--;
+                recv++; // lost 탈출명단 ++
+                break;
             }
         }
     }
 
-    for (int lo : lost){    // 여벌이 없으면서 잃어버린 친구들
-        for (int i =0; i < reserve.size(); i++){
-            if (lo == reserve[i] + 1 || reserve[i] - 1){    // +- 1 의 번호에 친구가 여벌이 있다면 빌려주기
+    if(reserve.size() == 0){return answer + recv;} 
+
+    for (int lo : lost_copy){    // 여벌이 없으면서 잃어버린 친구들
+        for (int i =0; i < reserve.size(); i++){    // 빌려줄수 있는 친구 탐색
+            if (lo == reserve[i] + 1 || lo == reserve[i] - 1){    // +- 1 의 번호에 친구가 여벌이 있다면 빌려주기
                 recv++;
-                reserve.erase(reserve.begin() + i);
+                reserve.erase(reserve.begin() + i); // 빌려줬으니 명단에서 삭제
                 break;
             }
         }
@@ -89,6 +93,25 @@ int main(){
     reserve.push_back(1);
 
     solution(n, lost, reserve); // 2
+
+    n =7;
+
+    lost.clear();
+    reserve.clear();
+
+    lost.push_back(1);
+    lost.push_back(2);
+    lost.push_back(3);
+    lost.push_back(4);
+    lost.push_back(5);
+    lost.push_back(6);
+    lost.push_back(7);
+
+    reserve.push_back(1);
+    reserve.push_back(2);
+    reserve.push_back(3);
+
+    solution(n, lost, reserve); // 3
 
     return 0;
 }
