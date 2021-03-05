@@ -337,3 +337,104 @@ int main(){
 * v.rend() (revers end) : 백터의 (시작 + 1) 지점을 끝 부분으로 반환 
 * v.size() : 원소의 갯수를 반환
 * v.reserve(n) : n개의 원소를 저장할 위치를 예약 (미리 동적할당)
+
+## 우선순위 큐
+선언
+```cpp
+// 기본형
+#include <queue>
+priority_queue<T, Container, Compare>
+```
+```cpp
+// Ex
+priority_queue < int, vector<int> , greater<int> > pq;  // greater<int> 오름차순 정렬
+```
+
+### priority_queue 멤버 함수
+1. .size();
+    - 원소의 개수를 반환합니다.
+2. .top();
+    - access top element
+3. .push();
+    - insert element
+4. .pop();
+    - delete top element
+5. while( !pq.empty() ) pq.pop();
+    - 초기화 == clear()
+6. empty()
+    - 비어있으면 true 아니면 false를 반환
+
+## map
+
+- 특징
+
+  - key, value값으로 데이터를 저장할 수 있는 자료구조입니다.
+
+  - 노드 기반의 균형 이진 트리 구조(Red-Black Tree)입니다.
+
+  - 기본적으로 key는 중복이 불가능합니다. (multimap은 중복 가능)
+
+  - 삽입시 자동으로 정렬됩니다.
+
+  - 기본적으로 오름차순으로 정렬됩니다. 
+
+- map은 이럴때 사용하면 좋습니다.
+
+  - 입력하는 데이터를 정렬해야 할 때
+
+  - 많은 자료를 저장해야 하고, 검색이 빨라야 할 때
+
+  - 삽입과 삭제가 빈번하지 않을 때 (자동 정렬되기 때문에 속도가 느려짐)
+  
+선언
+```cpp
+#include <map>
+map<key,value>;
+// key와 value를 pair 형태로 선언합니다.
+map< string, int > m;
+```
+- iterator(반복자)
+    - begin(): beginning iterator를 반환
+    - end(): end iterator를 반환
+- 추가 및 삭제
+    - insert( make_pair(key,value) ): 맵에 원소를 pair 형태로 추가
+    - erase(key): 맵에서 key(키값)에 해당하는 원소 삭제
+    - clear(): 맵의 원소들 모두 삭제
+- 조회
+    - find(key): key(키값)에 해당하는 iterator를 반환
+    - count(key): key(키값)에 해당하는 원소들(value들)의 개수를 반환
+- 기타
+    - empty(): 맵이 비어있으면 true 아니면 false를 반환
+    - size(): 맵 원소들의 수를 반환
+
+Ex
+```cpp
+// insert(key,value)
+m.insert(make_pair("e", 5));
+m["f"] = 6; // also possible
+
+// erase(key)
+m.erase("e");
+m.erase(m.find("f")); // also possible
+
+// empty(), size()
+if(!m.empty()) cout << "m size: " << m.size() << '\n';
+
+
+// find(key)
+cout << "a: " << m.find("a")->second << '\n';
+cout << "b: " << m.find("b")->second << '\n';
+
+
+// count(key)
+cout << "a count: " << m.count("a") << '\n';
+cout << "b count: " << m.count("b") << '\n';
+
+
+// begin(), end()
+cout << "traverse" << '\n';
+// map< string, int >::iterator it; also possible
+for(auto it = m.begin(); it != m.end(); it++){
+    cout << "key: " << it->first << " " << "value: " << it->second << '\n';
+}
+```
