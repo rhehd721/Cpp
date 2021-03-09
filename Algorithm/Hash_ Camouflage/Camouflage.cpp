@@ -14,7 +14,7 @@
 // 3. 만약 옷의 갯수가 한개가 아니라면 전체합 + 종류* 이다.
 // 1개, 2개, 3개, 4개 ... n개
 
-#include<iostream>
+#include <iostream>
 #include <string>
 #include <vector>
 
