@@ -1,3 +1,5 @@
+// 임의의 숫자 N에 대하여 특정 범위에서 N의 배수의 갯수와 그들의 합을 구해주는 코드
+
 #include <iostream>
 #include <vector>
 
@@ -33,7 +35,7 @@ int main(){
     }
 
     cout << num << "의 배수 : " << cnt - 1 << endl;
-     cout << num << "의 배수의 합: " << sum << endl;
+    cout << num << "의 배수의 합: " << sum << endl;
     
 
 }
