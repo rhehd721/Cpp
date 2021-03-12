@@ -19,7 +19,7 @@ typedef struct Tree{
 
 Tree * MakeTree(vector<int> num, int size){
     Tree * ptr = new Tree;
-    ptr -> data = 
+    ptr -> data = 0;
 }
 
 int solution(vector<int> numbers, int target) {
