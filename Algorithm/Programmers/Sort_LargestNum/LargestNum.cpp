@@ -96,10 +96,6 @@ string solution(vector<int> numbers) {
     // for (int i : thousand){
     //     cout << i << ", ";
     // }
-
-    
-    
-    
     
 
     cout << "answer : " << answer << endl << endl; 

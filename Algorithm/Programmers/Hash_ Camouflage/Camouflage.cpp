@@ -74,19 +74,16 @@ int solution(vector<vector<string> > clothes) {
     // cout << NumberofEachType.size() << endl;
     int result = 1;
 
-    if (NumberofEachType.size() == 1){
+    if (NumberofEachType.size() == 1){  // 종류가 한가지
         answer += NumberofEachType[0];
         return answer;
     }
     else{
-        for(int j = NumberofEachType.size(); j > 0; j--){
-            result *= j;
-        }
         for (int i : NumberofEachType){
-            answer += i;
+            result *= (i + 1);
         }
         // result *= NumberofEachType.size()-1;
-        return result + answer;
+        return result - 1;
     }
 
     return -1;
