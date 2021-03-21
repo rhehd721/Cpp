@@ -22,6 +22,9 @@ int solution(vector<vector<string>> clothes) {
     return answer;
 }
 ```
+### auto
+선언된 변수의 초기화 식을 사용하여 해당 형식을 추론
+
 
 ## 두번째 우수 풀이
 ```cpp
