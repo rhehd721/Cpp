@@ -65,34 +65,57 @@
 //
 //}
 
+// #include <iostream>
+
+// using namespace std;
+
+// class Time{
+// public:
+//     Time() : h(0), m(0), s(0) {}
+//     Time(int s_) : Time() {
+//         s = s_;
+//     }
+//     Time(int m_, int s_) : Time(s_) {
+//         m = m_;
+//     }
+//     Time(int h_, int m_, int s_) : Time(m_, s_) {
+//         h = h_;
+//     }
+    
+// //private:
+//     int h = 0;
+//     int m = 0;
+//     int s = 0;
+    
+// };
+
+// int main(){
+//     Time t(7, 5, 16);
+    
+//     cout << t.h << ":" << t.m << ":" << t.s << endl;
+    
+//     return 0;
+// }
+
 #include <iostream>
+#include <string>
+#include <vector>
+#include <map>
 
 using namespace std;
 
-class Time{
-public:
-    Time() : h(0), m(0), s(0) {}
-    Time(int s_) : Time() {
-        s = s_;
-    }
-    Time(int m_, int s_) : Time(s_) {
-        m = m_;
-    }
-    Time(int h_, int m_, int s_) : Time(m_, s_) {
-        h = h_;
-    }
-    
-//private:
-    int h = 0;
-    int m = 0;
-    int s = 0;
-    
-};
-
 int main(){
-    Time t(7, 5, 16);
-    
-    cout << t.h << ":" << t.m << ":" << t.s << endl;
-    
-    return 0;
+
+    int i = 0;
+
+    if(i == 0){
+        i++;
+    }
+    else if (i == 1){
+        cout << i << endl; 
+    }
+    else{
+        cout << i << endl;
+    }
+
 }
