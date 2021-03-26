@@ -15,32 +15,44 @@ using namespace std;
 int solution(vector< vector<int> > jobs) {
     int answer = 0;
     // [[0, 3], [1, 9], [2, 6]] [요청되는 시점, 소요되는 시간]
+    vector<int> start;
+    vector<int> time;
 
+    sort(jobs.begin(), jobs.end()); // 요청시간이 짧은 순서대로 정렬
 
+    for(vector<int> i : jobs){
+        start.push_back(i.at(0));
+        time.push_back(i.at(1));
+    }
 
+    
 
-    cout << "answer : " << answer << endl;
-    return answer;  // 9
+    
+
+    // cout << "\nstart : " ;
+    // for (int i : start){
+    //     cout << i << ", ";
+    // }
+    // cout << "\ntime : " ;
+    // for (int i : time){
+    //     cout << i << ", ";
+    // }
+
+    cout << "\nanswer : " << answer % jobs.size() << endl << endl;
+    return answer % jobs.size();  // 9
 }
 
 int main(){
     vector< vector<int> > jobs;
-    vector<int> a;
-    vector<int> b;
-    vector<int> c;
+    vector<int> a; vector<int> b; vector<int> c;
 
-    a.push_back(0);
-    a.push_back(3);
+    a.push_back(0); a.push_back(3);
 
-    b.push_back(1);
-    b.push_back(9);
+    b.push_back(1); b.push_back(9);
 
-    c.push_back(2);
-    c.push_back(6);
+    c.push_back(2); c.push_back(6);
 
-    jobs.push_back(a);
-    jobs.push_back(b);
-    jobs.push_back(c);
+    jobs.push_back(a); jobs.push_back(b); jobs.push_back(c);
 
     solution(jobs); // 9
 }
