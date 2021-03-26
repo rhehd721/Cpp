@@ -16,6 +16,7 @@ string solution(vector<int> numbers) {
 
 
 
+
     cout << "answer : " << answer << endl << endl; 
     return answer;
 }
