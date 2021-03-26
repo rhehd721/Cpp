@@ -105,17 +105,21 @@
 using namespace std;
 
 int main(){
+    int start(0);
+    int end(0);
 
-    int i = 0;
+    string str1 = "TEST";
+    string str2 = "ES";
+    
+    start = str1.find(str2);
+    end = (str1.find(str2)) + (str2.size()-1);
+    cout << start << endl;
+    cout << end << endl;
+    str1.replace(start, end, "");
 
-    if(i == 0){
-        i++;
-    }
-    else if (i == 1){
-        cout << i << endl; 
-    }
-    else{
-        cout << i << endl;
-    }
+    // start = str1.find(str2);
+    // end = (str1.find(str2)) + (str2.size());
+    // str1.replace(start, end, "");
 
+    cout << str1 << endl;
 }
