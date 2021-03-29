@@ -64,20 +64,19 @@ string solution(vector<int> numbers) {
 
             // 99 ~ 90 을 찾아라
             for(int j = 9; j >= 0; j --){
-                
+                num1.clear();
                 ss_num = s_num + to_string(j);
                 ii_num = count(b.begin(), b.end(), stoi(ss_num));
                 
                 // 999 ~ 990 을 찾아라
                 for(int k = 9; k >= 0; k --){
-                    if(j > i && k > j){}
                     sss_num = ss_num + to_string(k);
                     iii_num = count(c.begin(), c.end(), stoi(sss_num));
+                    num2.clear();
                     
                     if (j >= i && k >= j){  // 미리 넣기 ex. 333, 334, 345, 344
                         for (int z = 0; z < iii_num; z++){
                             answer += sss_num;
-                            iii_num = 0;
                         }
                     }
                     else{   // 311, 331
@@ -92,11 +91,20 @@ string solution(vector<int> numbers) {
                     }
                 }
                 else{
-
+                    for (int z = 0; z < ii_num; z++){
+                         num1.push_back(ss_num);
+                    }
+                    for (int z = 0; z < num2.size(); z++){
+                        num1.push_back(num2.at(z));
+                    }
                 }
-                
             }
-
+            for (int z = 0; z < i_num; z++){
+                answer += s_num;
+            }
+            for (int z = 0; z < num1.size(); z++){
+                answer += num1.at(z);
+            }
         }
 
         for (int z = 0; z < d.size(); z++){
