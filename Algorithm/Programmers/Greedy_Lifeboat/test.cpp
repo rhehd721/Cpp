@@ -33,7 +33,7 @@ int solution(vector<int> people, int limit) {
                     break;
                 }
             }
-            if(check == 1){
+            if(check){
                 check = 0;
             }
             else{

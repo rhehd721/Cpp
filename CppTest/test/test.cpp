@@ -108,21 +108,22 @@ int main(){
     int start(0);
     int end(0);
 
-    string str1 = "TEST";
-    string str2 = "ES";
+    // string str1 = "TEST";
+    // string str2 = "ES";
     
-    // start = str1.find(str2);
-    // end = (str1.find(str2)) + (str2.size()-1);
-    // cout << start << endl;
-    // cout << end << endl;
-    // str1.replace(start, end, "");
+    // // start = str1.find(str2);
+    // // end = (str1.find(str2)) + (str2.size()-1);
+    // // cout << start << endl;
+    // // cout << end << endl;
+    // // str1.replace(start, end, "");
 
-    // cout << stoi("22");
+    // // cout << stoi("22");
 
 
-    start = str1.find(str2 + "%");
-    end = (str1.find(str2)) + (str2.size());
-    // str1.replace(start,  "");
+    // start = str1.find(str2 + "%");
+    // end = (str1.find(str2)) + (str2.size());
+    // // str1.replace(start,  "");
+    int * outList = new int[5];
 
-    cout << 5/2 << endl;
+    cout << outList[0] << endl;
 }

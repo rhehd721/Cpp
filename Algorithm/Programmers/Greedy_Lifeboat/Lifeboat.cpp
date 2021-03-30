@@ -16,43 +16,59 @@ int solution(vector<int> people, int limit) {
     int answer = 0;
     int weight(0);
     int check(0);
+    int ListIdx(0);
+    int peopleIndex(0);
+    peopleIndex = people.size() - 1;
     int * outList = new int[people.size()];
 
     sort(people.begin(), people.end()); // 오름차순
 
     while(1){
-        if(people.size() > 1){
-            for(int j = people.size() - 2; j >= 0; --j){
-                weight = people.back() + people[j];
-                if(weight <= limit){
-                    people.erase(people.begin() + j);
-                    people.pop_back();
-                    check = 1;
-                    break;
+        if(peopleIndex >= 1){
+            for(int i = peopleIndex-1; i >= 0; --i){
+                weight = people.at(peopleIndex) + people.at(i);
+                if(weight > limit){
+                    continue;
+                }
+                else{   // 둘이 탈출할 수 있다면
+                    check = 0;
+                    for(int j = 0; j < ListIdx - 1; j++){ // 탈출 명단확인
+                        if(outList[j] == i){    // 이미 탈출한 사람이라면
+                            check = 1;
+                            break;
+                        }
+                    }
+                    if(check){
+                        continue;
+                    }
+                    else{   // 둘이 탈출 가능하고 탈출명단에 없다면
+                        outList[ListIdx++] = i;
+                        break;
+                    }
                 }
             }
-            if(check == 1){
-                check = 0;
+            ++answer;
+            peopleIndex--;
+            for(int j = 0; j < ListIdx - 1; j++){ // 탈출 명단확인
+                if(outList[j] == peopleIndex){    // 이미 탈출한 사람이라면
+                    peopleIndex--;
+                    j = -1;
+                }
             }
-            else{
-                people.pop_back();
-            }
-            if(people.size() == 0){
-                answer++;
+            if(peopleIndex <= 0){
+                // answer++;
                 break;
-            }
-            else{
-                answer++;
             }
         }
         else{
-            answer++;
+            ++answer;
             break;
         }
     }
+
     delete[] outList;
 
-    cout << "answer : " << answer << endl << endl;
+    cout << "\nanswer : " << answer << endl << endl;
     return answer;
 }
 
