@@ -124,5 +124,5 @@ int main(){
     end = (str1.find(str2)) + (str2.size());
     // str1.replace(start,  "");
 
-    cout << str1 << endl;
+    cout << 5/2 << endl;
 }

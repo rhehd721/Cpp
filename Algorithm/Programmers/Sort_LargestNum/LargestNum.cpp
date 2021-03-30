@@ -17,6 +17,9 @@ using namespace std;
 
 string solution(vector<int> numbers) {
     string answer = "";
+    sort(numbers.begin(), numbers.end(), greater<int>());
+
+    
 
 
     cout << "answer : " << answer << endl << endl; 
