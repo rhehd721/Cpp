@@ -26,17 +26,7 @@ using namespace std;
 string solution(string new_id) {
     string answer = "";
 
-    // for(char i : new_id){
-    //     cout << i << ", ";
-    // }
-    // cout << endl;
-
-    // for(char i : new_id){
-    //     if(i >= 65  && i <= 90){
-    //         cout << char(int(i) + 32) << ", ";
-    //     }
-    // }
-
+    cout << "처음 : " << new_id << endl;
 
     for (int i(0); i < new_id.size(); i++){
         // 1단계 대문자 -> 소문자
@@ -44,19 +34,43 @@ string solution(string new_id) {
             new_id[i] = char(int(new_id[i]) + 32);
         }
     }
-    cout << endl << new_id << endl;
+    cout << endl << "대문자 제거 : " << new_id << endl;
 
     // 2단계 소문자, 숫자, 빼기(-), 밑줄(_), 마침표(.) 이 아니라면 제거
     // 97 ~ 122 = 소문자
     // 48 ~ 57 = 숫자
-    // 45,46 = . -
+    // 45,46 = - .
     // 95 = _
     for (int i(0); i < new_id.size(); i++){
         if(!((new_id[i] >= 48  && new_id[i] <= 57) || new_id[i] == 45 || new_id[i] == 46 || new_id[i] == 95 || (97 <= new_id[i] && new_id[i] <= 122))){
             new_id.erase(new_id.begin() + i);
+            i--;
         }
     }
-    cout << endl << new_id << endl;
+    cout << endl << "필요없는 문자 제거 : " << new_id << endl;
+
+    int start(0);
+    int cnt(0);
+    for (int i(0); i < new_id.size(); i++){
+        if(new_id[i] == 46){    // 마침표 발견
+            if(!cnt){   // .이 시작되는 지점 저장
+                start = i;
+            }
+            cnt++;  // 마침표 갯수 증가
+        }
+        else{
+            if(!cnt){   // cnt가 존재한다면 작업
+                new_id.erase(new_id.begin() + start, new_id.begin() + start + cnt - 1);
+                start = 0;
+            }
+            else{   // cnt = 0 이면 아무런 동작 없음
+                continue;
+            }
+        }
+    }
+    cout << endl << "마침표 줄이기 : " << new_id << endl;
+
+    // 3단계 연속된 .는 하나로 통일
 
 
     // for (int i(0); i < new_id.size(); i++){
