@@ -94,20 +94,24 @@ int solution(string name) {
         cout << "tail : " << tail << endl;
         cout << "current : " << current << endl << endl;
     }
-    if(current <= Not_A_IdxList[front]){
+
+    int go = Not_A_IdxList[front] - current;
+    int back = (name.size() - Not_A_IdxList[tail]) + current;
+
+    if(go <= back){
         if(int(name[Not_A_IdxList[front]]) <= 77){
-            answer += int(name[Not_A_IdxList[front]]) - int('A') + (Not_A_IdxList[front] - current);
+            answer += int(name[Not_A_IdxList[front]]) - int('A') + go;
         }
         else{
-            answer += 91 - int(name[Not_A_IdxList[front]]) + (Not_A_IdxList[front] - current);
+            answer += 91 - int(name[Not_A_IdxList[front]]) + go;
         }
     }
     else{
         if(int(name[Not_A_IdxList[front]]) <= 77){
-            answer += int(name[Not_A_IdxList[front]]) - int('A') + (Not_A_IdxList[tail] - current);
+            answer += int(name[Not_A_IdxList[front]]) - int('A') + back;
         }
         else{
-            answer += 91 - int(name[Not_A_IdxList[front]]) + (Not_A_IdxList[tail] - current);
+            answer += 91 - int(name[Not_A_IdxList[front]]) + back;
         }
     }
 
