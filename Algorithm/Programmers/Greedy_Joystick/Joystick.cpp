@@ -15,7 +15,7 @@
 
 using namespace std;
 
-string make_Start(string name){
+string make_Start_A(string name){
     string Start;
     for (int i(0); i < name.size(); i++){
         Start += 'A';
@@ -24,7 +24,7 @@ string make_Start(string name){
     return Start;
 }
 
-vector<int> make_Not_A(string name){
+vector<int> make_Not_A_indexList(string name){
     vector<int> Not_A;
 
     // 글자에서 A가 아닌 index를 찾는다
@@ -40,80 +40,8 @@ vector<int> make_Not_A(string name){
 }
 
 int solution(string name) {
-    int answer = 1;
+    int answer(0);
 
-    for (char i : name){
-        if(i != 'A'){
-            answer = 0;
-        }
-    }
-
-    if(!answer){
-        answer = 0;
-    }
-    else{
-        cout << "answer : " << 0 << endl;
-        return 0;
-    }
-
-    string Start_A = make_Start(name);
-    vector<int> Not_A_IdxList = make_Not_A(name);
-
-    int current(0); // 현재 나의 위치
-    int front(0);
-    int tail(Not_A_IdxList.size() - 1);
-
-    while(front != tail){
-        int go = Not_A_IdxList[front] - current;
-        int back = (name.size() - Not_A_IdxList[tail]) + current;
-        cout << "go : " << go << " back :" << back << endl;
-
-        if(go <= back){ // 앞으로 전진
-            if(int(name[Not_A_IdxList[front]]) <= 77){
-                answer += int(name[Not_A_IdxList[front]]) - int('A') + go;
-            }
-            else{
-                answer += 91 - int(name[Not_A_IdxList[front]]) + go;
-            }
-            cout << "in_go : " << name[Not_A_IdxList[front]] << endl;
-            current = Not_A_IdxList[front];
-            front++;
-        }
-        else{ // 뒤로 돌아가기
-            if(int(name[Not_A_IdxList[tail]]) <= 77){
-                answer += int(name[Not_A_IdxList[tail]]) - int('A') + back;
-            }
-            else{
-                answer += 91 - int(name[Not_A_IdxList[tail]]) + back;
-            }
-            cout << "in_back : " << name[Not_A_IdxList[tail]] << endl;
-            current = Not_A_IdxList[tail];
-            tail--;
-        }
-        cout << "front : " << front << endl;
-        cout << "tail : " << tail << endl;
-        cout << "current : " << current << endl << endl;
-    }
-
-    int go = Not_A_IdxList[front] - current;
-    int back = (name.size() - Not_A_IdxList[tail]) + current;
-
-    if(go <= back){
-        if(int(name[Not_A_IdxList[front]]) <= 77){
-            answer += int(name[Not_A_IdxList[front]]) - int('A') + go;
-        }
-        else{
-            answer += 91 - int(name[Not_A_IdxList[front]]) + go;
-        }
-    }
-    else{
-        if(int(name[Not_A_IdxList[front]]) <= 77){
-            answer += int(name[Not_A_IdxList[front]]) - int('A') + back;
-        }
-        else{
-            answer += 91 - int(name[Not_A_IdxList[front]]) + back;
-        }
-    }
 
     cout << endl << "answer : " << answer << endl << endl;
     return answer;
@@ -137,7 +65,7 @@ int main(){
     cout<< endl << "############### solution 4" << endl<< endl;
     solution(name); // 2
 
-    name = "C";
+    name = "CAAAACCAAAACC";
     cout<< endl << "############### solution 5" << endl<< endl;
     solution(name); // 2
 
