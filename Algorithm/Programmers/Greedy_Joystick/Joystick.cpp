@@ -42,6 +42,32 @@ vector<int> make_Not_A_indexList(string name){
 int solution(string name) {
     int answer(0);
 
+    string result = make_Start_A(name);
+    vector<int> Not_A_indexList = make_Not_A_indexList(name);
+
+    int front_idx(0);
+    int tail_idx(Not_A_indexList.size() - 1);
+    int currnt(0);
+
+    int go_front(0);
+    int back_front(0);
+
+    int go_tail(0);
+    int back_tail(0);
+
+    while(result != name){
+        go_front = Not_A_indexList[front_idx] - currnt;
+        back_front = currnt - Not_A_indexList[front_idx];
+        back_front = name.size() - Not_A_indexList[tail_idx] + currnt;
+
+        go_tail = Not_A_indexList[tail_idx] - currnt;
+        back_tail = name.size() - Not_A_indexList[tail_idx] + currnt;
+
+        cout << go_front << ", " << back_front << endl;
+        cout << go_tail << ", " << back_tail << endl;
+
+        return 0;
+    }
 
     cout << endl << "answer : " << answer << endl << endl;
     return answer;
