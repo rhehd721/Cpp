@@ -29,7 +29,7 @@ int solution(vector<int> citations) {
 
     for (int h : citations){
         int cnt_Big(0); // h 보다 많이 인용된 횟수
-        int cnt_Small(0);
+        int cnt_Small(0);   // h 보다 적게 인용된 횟수
         for(int j : Sort_citations){
             if(h <= j){ // 특정 횟수 이상 인용된 논문의 수
                 cnt_Big++;
@@ -38,15 +38,16 @@ int solution(vector<int> citations) {
                 cnt_Small++;
             }
         }
+        // cout << h << '<' << cnt_Big << '<' << cnt_Small << endl;
         if(h <= cnt_Big){   // h번 이상 인용되었는가
-            if(h > cnt_Small){
+            // if(h > cnt_Small){ // h번 이하?미만? 인용되지 않은 논문이 존재하는가
                 answer = h;
-                // cout << "answer : " << answer << ", " << cnt_Big << endl;
-            }
+                cout << "answer" << answer << endl;
+            // }
         }
-        // else{
-        //     break;
-        // }
+        else{
+            break;
+        }
     }
 
     cout << answer << endl;
@@ -62,11 +63,4 @@ int main(){
     citations.push_back(5);
 
     solution(citations);    // 3
-
-    citations.clear();
-    citations.push_back(0);
-    citations.push_back(0);
-    citations.push_back(0);
-    solution(citations);    // 3
-
 }
