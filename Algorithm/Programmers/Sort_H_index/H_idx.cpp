@@ -11,7 +11,43 @@ using namespace std;
 
 int solution(vector<int> citations) {
     int answer = 0;
+    int Paper(citations.size());    // 총 투고한 논문
+    
+    sort(citations.begin(), citations.end());   // 논문 인용수 정렬
+    vector<int> Sort_citations = citations;     // 정렬된 citations
+    // cout << "Sort_citations : ";
+    // for (int i : Sort_citations){
+    //     cout << i << ", ";
+    // }
+    // cout << endl;
+    citations.erase(unique(citations.begin(), citations.end()), citations.end());   // 중복제거
+    // cout << "citations : ";
+    // for (int i : citations){
+    //     cout << i << ", ";
+    // }
+    // cout << endl;
 
+    for (int h : citations){
+        int cnt_Big(0); // h 보다 많이 인용된 횟수
+        int cnt_Small(0);   // h 보다 적게 인용된 횟수
+        for(int j : Sort_citations){
+            if(h <= j){ // 특정 횟수 이상 인용된 논문의 수
+                cnt_Big++;
+            }
+            else{
+                cnt_Small++;
+            }
+        }
+        cout << h << '<' << cnt_Big << '<' << cnt_Small << endl;
+        if(h <= cnt_Big){   // h번 이상 인용되었는가
+            if(h > cnt_Small){ // h번 이하?미만? 인용되지 않은 논문이 존재하는가
+                answer = h;
+            }
+        }
+        else{
+            break;
+        }
+    }
 
     cout << answer << endl;
     return answer;
