@@ -27,7 +27,7 @@ int solution(vector<int> citations) {
     // }
     // cout << endl;
 
-    for (int h : citations){
+    for (int h(citations[citations.size() - 1]); h >= 0; h--){
         int cnt_Big(0); // h 보다 많이 인용된 횟수
         int cnt_Small(0);
         for(int j : Sort_citations){
@@ -41,12 +41,10 @@ int solution(vector<int> citations) {
         if(h <= cnt_Big){   // h번 이상 인용되었는가
             if(h > cnt_Small){
                 answer = h;
+                break;
                 // cout << "answer : " << answer << ", " << cnt_Big << endl;
             }
         }
-        // else{
-        //     break;
-        // }
     }
 
     cout << answer << endl;
@@ -67,6 +65,30 @@ int main(){
     citations.push_back(0);
     citations.push_back(0);
     citations.push_back(0);
+    solution(citations);    // 0
+
+    citations.clear();
+    citations.push_back(12);
+    citations.push_back(11);
+    citations.push_back(10);
+    citations.push_back(9);
+    citations.push_back(8);
+    citations.push_back(1);
+    solution(citations);    // 5
+
+    citations.clear();
+    citations.push_back(6);
+    citations.push_back(6);
+    citations.push_back(6);
+    citations.push_back(6);
+    citations.push_back(6);
+    citations.push_back(1);
+    solution(citations);    // 5
+
+    citations.clear();
+    citations.push_back(4);
+    citations.push_back(4);
+    citations.push_back(4);
     solution(citations);    // 3
 
 }
