@@ -1,22 +1,35 @@
-# Sort - H_idx
+# Kakao - NewID
 
-# 최우수 풀이
+## 우수 풀이
 ```cpp
-#include <string>
-#include <vector>
-#include <algorithm>
-
+#include <bits/stdc++.h>
 using namespace std;
 
-int solution(vector<int> citations) {
-    sort(citations.begin(), citations.end(), greater<int>());
+string solution(string new_id) {
+    for (char& ch : new_id) if ('A' <= ch && ch <= 'Z') ch |= 32;
 
-    for (int i = 0; i < citations.size(); ++i) {
-        if (citations[i] < i + 1) {
-            return i;
-        }
+    string ret;
+    for (char& ch: new_id) {
+        if ('a' <= ch && ch <= 'z' ||
+            '0' <= ch && ch <= '9' ||
+            strchr("-_.", ch)) ret += ch;
     }
 
-    return citations.size();
+    new_id = ret;
+    ret.clear();
+    for (char& ch: new_id) {
+        if (!ret.empty() && ret.back() == '.' && ch == '.') continue;
+        ret += ch;
+    }
+
+    if (ret.front() == '.') ret.erase(ret.begin());
+    if (ret.back() == '.') ret.pop_back();
+
+    if (ret.empty()) ret = "a";
+    if (ret.size() >= 16) ret = ret.substr(0, 15);
+    if (ret.back() == '.') ret.pop_back();
+    while (ret.size() <= 2) ret += ret.back();
+
+    return ret;
 }
 ```
