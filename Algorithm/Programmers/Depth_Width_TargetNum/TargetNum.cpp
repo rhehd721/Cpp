@@ -12,22 +12,38 @@
 using namespace std;
 
 typedef struct Tree{
-    Tree * left;
-    Tree * right;
-    int data;
+    Tree * first;
+    Tree * second;
+    int num;
 }Tree;
 
-Tree * MakeTree(vector<int> num, int size){
-    Tree * ptr = new Tree;
-    ptr -> data = 0;
+Tree Make_Tree(Tree * Parent, int child){
+    Tree * Plus_node = new Tree;
+    Plus_node -> num = child;
+
+    Tree * Minus_node = new Tree;
+    Plus_node -> num = (-1 * child);
+
+    return Plus_node, Minus_node;
 }
 
 int solution(vector<int> numbers, int target) {
     int answer = 0;
-    
-    Tree * root = MakeTree(numbers, target);
-    
-    cout << answer << endl;
+    int result(0);
+
+    Tree * Start = new Tree;
+    Start -> num = 0;
+
+    for(int num : numbers){
+        Start = Make_Tree(Start, num);
+        
+    }
+
+    // if(result == target){
+    //     answer++;
+    // }
+        
+    cout << "answer : " << answer << endl;
     return answer;
 }
 
