@@ -13,7 +13,9 @@ public:
   int bottom_;
 };
 
-float CalculateIoU(Box b1, Box b2){ 
+float CalculateIoU(Box b1, Box b2);
+
+float CalculateIoU(Box b1, Box b2){
     float result(0);
 
     int X_min(0);
@@ -109,31 +111,25 @@ float CalculateIoU(Box b1, Box b2){
 
 }
 
-int main() {
-  Box b1 = {0, 100, 0, 100};
-  Box b2 = {0, 50, 0, 100};
-  float iou_1 = CalculateIoU(b1, b2);
-  cout << "IoU: " << iou_1 << endl;   // 0.5
+int num_TP(0), num_FN(0), num_FP(0);
 
-  Box b3 = {50, 150, 0, 100};
-  Box b4 = {0, 100, 0, 100};
-  float iou_2 = CalculateIoU(b3, b4);
-  cout << "IoU: " << iou_2 << endl;   // 0.333333
+void EvaluatePredictions(vector<Box>& prediction, // 예측 값
+vector<Box>& truth, // 실제 값
+const float iou, // 임계치
+int &num_TP, int &num_FN, int &num_FP) {
 
-  Box b5 = {50, 150, 0, 100};
-  Box b6 = {0, 50, 0, 100};
-  float iou_3 = CalculateIoU(b5, b6);
-  cout << "IoU: " << iou_3 << endl;   // 0
+  float io;
 
-  Box b7 = {0, 50, 0, 100};
-  Box b8 = {0, 50, 0, 100};
-  float iou_4 = CalculateIoU(b7, b8);
-  cout << "IoU: " << iou_4 << endl;   // 1
-
-  Box b9 = {0, 100, 0, 100};
-  Box b10 = {50, 150, 0, 100};
-  float iou_5 = CalculateIoU(b9, b10);
-  cout << "IoU: " << iou_5 << endl;   // 0.333333
-
-	return 0;
+  for(int i = 0; i < prediction.size(); i++){
+    io = CalculateIoU(prediction[i], truth[i]);
+    if(io >= iou){
+      num_TP++;
+    }
+    else{
+      num_FN++;
+      num_FP++;
+    }
+  }
+  
 }
+
