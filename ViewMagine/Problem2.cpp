@@ -14,6 +14,10 @@ public:
 };
 
 float CalculateIoU(Box b1, Box b2);
+void EvaluatePredictions(vector<Box>& prediction, // 예측 값
+vector<Box>& truth, // 실제 값
+const float iou, // 임계치
+int &num_TP, int &num_FN, int &num_FP);
 
 float CalculateIoU(Box b1, Box b2){
     float result(0);
