@@ -16,6 +16,7 @@ public:
 float CalculateIoU(Box b1, Box b2){ 
   float result(0);
 
+  // 커다란 사각형 배열 크기 정하기
   int X_min(0);
   int X_max(0);
 
@@ -49,24 +50,24 @@ float CalculateIoU(Box b1, Box b2){
   else{
     Y_max = b2.bottom_;
   }
-
+  // 커다란 사각형의 크기 정하기
   int width = X_max - X_min;
   int height = Y_max - Y_min;
 
   int Square[height][width];
-
+  // 사각형 배열을 0으로 채우기
   for(int i = 0; i < height; i++){
     for(int j = 0; j < width; j++){
       Square[i][j] = 0;
     }
   }
-
+  // 사각형 내부에 box1 사각형을 넣고 그자리를 -1로 변경
   for(int i = b1.top_; i < b1.bottom_; i++){
     for(int j = b1.left_; j < b1.right_; j++){
       Square[i][j] = -1;
     }
   }
-
+  // 사격형 내부에 box2 사각형을 넣고 box1과 겹치면 -2 아니라면 -1
   for(int i = b2.top_; i < b2.bottom_; i++){
     for(int j = b2.left_; j < b2.right_; j++){
       if( Square[i][j] == -1){
@@ -77,7 +78,7 @@ float CalculateIoU(Box b1, Box b2){
       }
     }
   }
-
+  // 0, -1, -2 의 갯수를 담을 변수
   int num_two(0);
   int num_one(0);
   int num_zero(0);
