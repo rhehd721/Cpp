@@ -82,7 +82,7 @@ float CalculateIoU(Box b1, Box b2){
   int num_two(0);
   int num_one(0);
   int num_zero(0);
-
+  // array 돌면서 갯수 카운트
   for(int i = 0; i < height; i++){
     for(int j = 0; j < width; j++){
       if(Square[i][j] == 0){
@@ -96,7 +96,7 @@ float CalculateIoU(Box b1, Box b2){
       }
     }
   }
-
+  // 결과괎 반환
   if(num_two == 0){
     return 0;
   }
