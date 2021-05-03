@@ -96,7 +96,7 @@ float CalculateIoU(Box b1, Box b2){
       }
     }
   }
-  // 결과괎 반환
+  // 결과값 반환
   if(num_two == 0){
     return 0;
   }
