@@ -10,25 +10,27 @@
 using namespace std;
 
 int solution(vector<vector<int> > triangle) {
-    int answer = 0;
+    int answer(0);
+    int index(0);   // 자기자신 또는 +1
 
     // for(vector<int> Num : triangle){
-    //     sort(Num.begin(), Num.end(), greater<int>()); // 내림차순 정렬
     //     for(int i = 0; i < Num.size(); i++){
     //         cout << Num[i] << ", ";
     //     }
     //     cout << endl;
     // }
 
-    int Max_Num(0);
+    while(1){
 
-    for(vector<int> Num : triangle){
-        sort(Num.begin(), Num.end(), greater<int>()); // 내림차순 정렬
-        Max_Num += Num[0];
+        for(vector<int> Num : triangle){
+            // sort(Num.begin(), Num.end(), greater<int>()); // 내림차순 정렬
+            answer += Num[index];
+        }
+
+        break;
+
     }
     
-
-    answer = Max_Num;
 
     cout << "answer : " << answer << endl;
     return answer;
