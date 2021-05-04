@@ -17,14 +17,15 @@ typedef struct Tree{
     int num;
 }Tree;
 
-Tree Make_Tree(Tree * Parent, int child){
+Tree* Make_Tree(Tree * Parent, int child){
     Tree * Plus_node = new Tree;
     Plus_node -> num = child;
 
     Tree * Minus_node = new Tree;
     Plus_node -> num = (-1 * child);
 
-    return Plus_node, Minus_node;
+    return Plus_node;
+    // return Plus_node, Minus_node;
 }
 
 int solution(vector<int> numbers, int target) {
