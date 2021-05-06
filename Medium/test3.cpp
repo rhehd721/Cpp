@@ -16,6 +16,7 @@ vector<long long> solution(long long n){
     // 모든 약수 구하기
     for (int i = 1; i <= n; i++){
         if(i == 1){continue;}
+        
         if((n%i) ==0){  // 약수인가
             check = 0;
             check2 = 0;
@@ -26,6 +27,7 @@ vector<long long> solution(long long n){
                 }
             }
             if(check){}
+            // 소수라면 그 짝궁도 소수인지 확인
             else{
                 tem = (n / i);
                 for(int k = 2; k < tem; k++){
