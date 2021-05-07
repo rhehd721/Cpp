@@ -13,24 +13,21 @@ int solution(vector<vector<int> > triangle) {
     int answer(0);
     int index(0);   // 자기자신 또는 +1
 
-    // for(vector<int> Num : triangle){
-    //     for(int i = 0; i < Num.size(); i++){
-    //         cout << Num[i] << ", ";
-    //     }
-    //     cout << endl;
-    // }
+    int Max_Size(1);
 
-    while(1){
-
-        for(vector<int> Num : triangle){
-            // sort(Num.begin(), Num.end(), greater<int>()); // 내림차순 정렬
-            answer += Num[index];
-        }
-
-        break;
-
+    for(int i(0); i < triangle.size(); i++){
+        Max_Size *= triangle[i].size();
     }
-    
+
+    vector<int> Sum_List(Max_Size);
+
+    for (int i(0); i < Max_Size; i++){
+        // Sum_List->push_back(??);
+    }
+
+    sort(Sum_List.begin(), Sum_List.end());
+
+    answer = Sum_List[Sum_List.size() - 1];
 
     cout << "answer : " << answer << endl;
     return answer;
