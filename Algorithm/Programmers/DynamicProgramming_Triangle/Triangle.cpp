@@ -11,22 +11,33 @@ using namespace std;
 
 int solution(vector<vector<int> > triangle) {
     int answer(0);
-    int index(0);   // 자기자신 또는 +1
 
+    // triangle의 요소들로 만들 수 있는 숫자의 갯수
     int Max_Size(1);
-
     for(int i(0); i < triangle.size(); i++){
         Max_Size *= triangle[i].size();
     }
-
     vector<int> Sum_List(Max_Size);
+    
+    // triangle의 요소로 만들 수 있는 모든 숫자조합을 넣어주기
+    Max_Size = 0;
+    while(1){
+        int tem(0);
+        for (int tr(0); tr < triangle.size(); tr++){
+            int index(0);   // 자기자신 또는 +1
+            tem += triangle[tr][index];
+        }
 
-    for (int i(0); i < Max_Size; i++){
-        // Sum_List->push_back(??);
+        // Sum_List[Max_Size++] = ?
+
+        if( Max_Size ==  Sum_List.size()){   // 모든 숫자를 만들었다면 빠져나오기
+            break;
+        }
     }
-
+    
+    
+    // 만들어진 숫자 중 최대숫자 찾아기
     sort(Sum_List.begin(), Sum_List.end());
-
     answer = Sum_List[Sum_List.size() - 1];
 
     cout << "answer : " << answer << endl;
