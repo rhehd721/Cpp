@@ -9,6 +9,17 @@
 
 using namespace std;
 
+// int solution2(vector<vector<int> > triangle, int index, int num, vector<int> Sum_List, int List_idx){
+//     if(index < triangle.size()){
+//         triangle[index][index];
+//         triangle[index][index + 1];
+//         solution2(triangle, ++index, num);
+//     }
+//     else{
+//         return 0;
+//     }
+// }
+
 int solution(vector<vector<int> > triangle) {
     int answer(0);
 
@@ -21,19 +32,24 @@ int solution(vector<vector<int> > triangle) {
     
     // triangle의 요소로 만들 수 있는 모든 숫자조합을 넣어주기
     Max_Size = 0;
-    while(1){
-        int tem(0);
-        for (int tr(0); tr < triangle.size(); tr++){
-            int index(0);   // 자기자신 또는 +1
-            tem += triangle[tr][index];
-        }
+    int List_idx(0);
 
-        // Sum_List[Max_Size++] = ?
+    // while(1){
+    //     int tem(0);
+    //     for (int tr(0); tr < triangle.size(); tr++){
+    //         int index(0);   // 자기자신 또는 +1
+    //         tem += triangle[tr][index];
 
-        if( Max_Size ==  Sum_List.size()){   // 모든 숫자를 만들었다면 빠져나오기
-            break;
-        }
-    }
+    //         // triangle[tr][index + 1];
+    //         // triangle[tr][index];
+    //     }
+
+    //     // Sum_List[Max_Size++] = ?
+
+    //     if( Max_Size ==  Sum_List.size()){   // 모든 숫자를 만들었다면 빠져나오기
+    //         break;
+    //     }
+    // }
     
     
     // 만들어진 숫자 중 최대숫자 찾아기
