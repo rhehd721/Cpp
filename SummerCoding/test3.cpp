@@ -1,3 +1,4 @@
+
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -5,10 +6,6 @@
 
 using namespace std;
 
-int solution(string s) {
-    int answer = 0;
-    return answer;
-}
 
 int main(){
 
