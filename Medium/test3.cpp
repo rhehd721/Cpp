@@ -1,3 +1,4 @@
+// 루트값 까지 + 동일한 소수라면 -1 리턴
 #include <iostream>
 #include <algorithm>
 #include <vector>
