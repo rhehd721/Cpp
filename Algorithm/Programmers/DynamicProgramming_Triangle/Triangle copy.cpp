@@ -23,22 +23,22 @@ int solution(vector<vector<int> > triangle) {
     Max_Size = 0;
     int List_idx(0);
 
-    while(1){
-        int tem(0);
-        for (int tr(0); tr < triangle.size(); tr++){
-            int index(0);   // 자기자신 또는 +1
-            tem += triangle[tr][index];
+    // while(1){
+    //     int tem(0);
+    //     for (int tr(0); tr < triangle.size(); tr++){
+    //         int index(0);   // 자기자신 또는 +1
+    //         tem += triangle[tr][index];
 
-            // triangle[tr][index + 1];
-            // triangle[tr][index];
-        }
+    //         // triangle[tr][index + 1];
+    //         // triangle[tr][index];
+    //     }
 
-        // Sum_List[Max_Size++] = ?
+    //     // Sum_List[Max_Size++] = ?
 
-        if( Max_Size ==  Sum_List.size()){   // 모든 숫자를 만들었다면 빠져나오기
-            break;
-        }
-    }
+    //     if( Max_Size ==  Sum_List.size()){   // 모든 숫자를 만들었다면 빠져나오기
+    //         break;
+    //     }
+    // }
     
     
     // 만들어진 숫자 중 최대숫자 찾아기

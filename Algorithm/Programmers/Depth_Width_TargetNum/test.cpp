@@ -1,5 +1,3 @@
-// 미완성
-
 // 제한사항
 // 주어지는 숫자의 개수는 2개 이상 20개 이하입니다.
 // 각 숫자는 1 이상 50 이하인 자연수입니다.
@@ -8,24 +6,31 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <algorithm>
+#include <cmath> // 제곱을 사용하기 위한 라이브러리
 
 using namespace std;
 
-typedef struct Tree{
-    Tree * left;
-    Tree * right;
-    int data;
-}Tree;
+// int return_Num(int index, ){
 
-Tree * MakeTree(vector<int> num, int size){
-    Tree * ptr = new Tree;
-    ptr -> data = 0;
-}
+// }
+
 
 int solution(vector<int> numbers, int target) {
     int answer = 0;
+
+    int Pluse(1);
+    int Minuse(-1);
+
+    int MaxNum = pow(2, numbers.size());
+    vector<int> MakeNum(MaxNum);
+
+    for(int index(0); index < numbers.size(); index++){
+
+
+
+    }
     
-    Tree * root = MakeTree(numbers, target);
     
     cout << answer << endl;
     return answer;
