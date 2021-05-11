@@ -11,14 +11,13 @@ using namespace std;
 int return_Num(int index, int num, int Max_Size, vector<int> & numbers, int & answer, int target);
 
 int return_Num(int index, int num, int Max_Size, vector<int> & numbers, int & answer, int target){  // 현재 index, 현재까지 더한 수, 종결조건
-    int number = num;
     if(index == Max_Size){
-        if(number == target){answer++;}
+        if(num == target){answer++;}
         return 0;
     }
     else{
-        return_Num(index + 1, (number + numbers[index]), numbers.size(), numbers, answer, target);
-        return_Num(index + 1, (number - numbers[index]), numbers.size(), numbers, answer, target);
+        return_Num(index + 1, (num + numbers[index]), numbers.size(), numbers, answer, target);
+        return_Num(index + 1, (num - numbers[index]), numbers.size(), numbers, answer, target);
     }
     return 0;
 }
