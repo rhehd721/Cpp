@@ -39,9 +39,6 @@ vector<int> solution(vector<int> t, vector<int> r) {
 
 
 
-
-
-
     cout << "answer : ";
     for (int i : answer){
         cout << i << ", ";
