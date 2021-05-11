@@ -6,44 +6,32 @@
 #include <string>
 #include <vector>
 #include <algorithm>
+#include <queue>
 
 using namespace std;
+
+int Find_MaxNum(vector<vector<int> > & Num, int index, int Max_index, queue<int> & result, int Currently_num){
+    Currently_num += Num[index][index];
+    if(index == Max_index){
+        result.push(Currently_num);
+    }
+    else{
+        // Find_MaxNum(vector<int> & Num, int index, int Max_index, vector<int> & result, int Currently_num)
+    }
+
+    return 0;
+}
 
 int solution(vector<vector<int> > triangle) {
     int answer(0);
 
-    // triangle의 요소들로 만들 수 있는 숫자의 갯수
-    int Max_Size(1);
-    for(int i(0); i < triangle.size(); i++){
-        Max_Size *= triangle[i].size();
-    }
-    vector<int> Sum_List(Max_Size);
+    queue<int> result;
     
-    // triangle의 요소로 만들 수 있는 모든 숫자조합을 넣어주기
-    Max_Size = 0;
-    int List_idx(0);
-
-    // while(1){
-    //     int tem(0);
-    //     for (int tr(0); tr < triangle.size(); tr++){
-    //         int index(0);   // 자기자신 또는 +1
-    //         tem += triangle[tr][index];
-
-    //         // triangle[tr][index + 1];
-    //         // triangle[tr][index];
-    //     }
-
-    //     // Sum_List[Max_Size++] = ?
-
-    //     if( Max_Size ==  Sum_List.size()){   // 모든 숫자를 만들었다면 빠져나오기
-    //         break;
-    //     }
-    // }
+    // 만들 수 있는 숫자들을 모두 넣어준다.
     
+    Find_MaxNum(triangle, 0 , triangle.size(), result, 0);
     
-    // 만들어진 숫자 중 최대숫자 찾아기
-    sort(Sum_List.begin(), Sum_List.end());
-    answer = Sum_List[Sum_List.size() - 1];
+    answer = result.back();
 
     cout << "answer : " << answer << endl;
     return answer;
