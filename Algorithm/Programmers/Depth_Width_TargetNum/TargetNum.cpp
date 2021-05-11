@@ -1,50 +1,34 @@
-// 미완성
-
 // 제한사항
 // 주어지는 숫자의 개수는 2개 이상 20개 이하입니다.
 // 각 숫자는 1 이상 50 이하인 자연수입니다.
 // 타겟 넘버는 1 이상 1000 이하인 자연수입니다.
 
 #include <iostream>
-#include <string>
 #include <vector>
 
 using namespace std;
 
-typedef struct Tree{
-    Tree * first;
-    Tree * second;
-    int num;
-}Tree;
+int return_Num(int index, int num, int Max_Size, vector<int> & numbers, int & answer, int target);
+int solution(vector<int> numbers, int target);
 
-Tree* Make_Tree(Tree * Parent, int child){
-    Tree * Plus_node = new Tree;
-    Plus_node -> num = child;
-
-    Tree * Minus_node = new Tree;
-    Plus_node -> num = (-1 * child);
-
-    return Plus_node;
-    // return Plus_node, Minus_node;
+int return_Num(int index, int num, int Max_Size, vector<int> & numbers, int & answer, int target){// 현재 index, 현재까지 더한 수, 종결조건
+    if(index == Max_Size){
+        if(num == target){answer++;}
+        return 0;
+    }
+    else{
+        return_Num(index + 1, (num + numbers[index]), numbers.size(), numbers, answer, target);
+        return_Num(index + 1, (num - numbers[index]), numbers.size(), numbers, answer, target);
+    }
 }
+
 
 int solution(vector<int> numbers, int target) {
     int answer = 0;
-    int result(0);
 
-    Tree * Start = new Tree;
-    Start -> num = 0;
-
-    for(int num : numbers){
-        Start = Make_Tree(Start, num);
-        
-    }
-
-    // if(result == target){
-    //     answer++;
-    // }
-        
-    cout << "answer : " << answer << endl;
+    return_Num(0, 0, numbers.size(), numbers, answer, target);
+    
+    cout << answer << endl;
     return answer;
 }
 

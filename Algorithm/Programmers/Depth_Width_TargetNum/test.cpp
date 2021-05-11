@@ -4,33 +4,30 @@
 // 타겟 넘버는 1 이상 1000 이하인 자연수입니다.
 
 #include <iostream>
-#include <string>
 #include <vector>
-#include <algorithm>
-#include <cmath> // 제곱을 사용하기 위한 라이브러리
 
 using namespace std;
 
-// int return_Num(int index, ){
+int return_Num(int index, int num, int Max_Size, vector<int> & numbers, int & answer, int target);
+int solution(vector<int> numbers, int target);
 
-// }
+int return_Num(int index, int num, int Max_Size, vector<int> & numbers, int & answer, int target){// 현재 index, 현재까지 더한 수, 종결조건
+    if(index == Max_Size){
+        if(num == target){answer++;}
+        return 0;
+    }
+    else{
+        return_Num(index + 1, (num + numbers[index]), numbers.size(), numbers, answer, target);
+        return_Num(index + 1, (num - numbers[index]), numbers.size(), numbers, answer, target);
+    }
+}
 
 
 int solution(vector<int> numbers, int target) {
     int answer = 0;
 
-    int Pluse(1);
-    int Minuse(-1);
 
-    int MaxNum = pow(2, numbers.size());
-    vector<int> MakeNum(MaxNum);
-
-    for(int index(0); index < numbers.size(); index++){
-
-
-
-    }
-    
+    return_Num(0, 0, numbers.size(), numbers, answer, target);
     
     cout << answer << endl;
     return answer;

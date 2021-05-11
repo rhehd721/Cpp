@@ -11,6 +11,7 @@
 #include <string> // 문자열을 사용하게 해주는 라이
 #include <vector> // vector
 #include <algorithm> // sort, 
+#include <cmath> // pow(n, m) n^m
 ``` 
 ---
 ## namespace
@@ -438,3 +439,5 @@ for(auto it = m.begin(); it != m.end(); it++){
     cout << "key: " << it->first << " " << "value: " << it->second << '\n';
 }
 ```
+
+## 
