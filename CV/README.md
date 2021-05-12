@@ -1,10 +1,10 @@
 # OpenCV (Open Source Computer Vision Library)
 
-[OpenCV 공식 사이트](http://www.opencv.org).
-[OpenCV 문서 사이트](http://www.docs.opencv.org).
-[OpenCV 질문 포럼 사이트](http://www.answers.opencv.org/questions).
-[OpenCV Github 기본모듈](http://www.github.com/opencv/opencv/).
-[OpenCV Github 추가모듈](http://www.github.com/opencv/opencv_contrib/).
+- [OpenCV 공식 사이트](http://www.opencv.org)
+- [OpenCV 문서 사이트](http://www.docs.opencv.org)
+- [OpenCV 질문 포럼 사이트](http://www.answers.opencv.org/questions)
+- [OpenCV Github 기본모듈](http://www.github.com/opencv/opencv/)
+- [OpenCV Github 추가모듈](http://www.github.com/opencv/opencv_contrib/)
 
 # 개요
 
@@ -31,8 +31,6 @@
 - GIF : 256 이하의 색상을 가진 영상만 저장 가능한 포맷(무손실 압축)
 - PNG : 트루컬러, 그레이스케일 모두 지원(무손실 압축, 큰 용량)
 
-# OpenCV 모듈
-
 ## 주요 모듈
 - calib3d : 카메라 캘리브레이션과 3차원 재구성
 - core : 행렬, 벡터 등 OpenCV 핵심 클래스와 연산 함수
@@ -52,6 +50,27 @@
 
 ![OpenCV 모듈](./image/module.jpeg)
 
-
+# OpenCV 설치
+Window
+- [OpenCV 4.0.0 Download](http://www.github.com/opencv/opencv/releases/tag/4.0.0)
+Linux
+- 업데이트
+    - sudo apt update
+    - sudo apt upgrade
+- 소스 코드 빌드에 필요한 패키지
+    - sudo apt install build-essential cmake pkg--config
+- 다양한 정지 영상 파일 불러오거나 저장하기 위한 패키지
+    - sudo apt install libjpeg-dev libtiff5-dev libpng-dev
+- 동영상 파일을 다루거나 캄퓨터에 연결된 카메라를 활용하기 위해 필요한 패키지 설치
+    - sudo apt install libavcode-dev libavformat-dev libswscale-dev
+    - sudo apt install libdc1394-22-dev libxvidcore-dev libx264-dev
+    - sudo apt install libxine2-dev libv4l-dev v4l-utils
+    - sudo apt install libgstreamer1.0-dev libgstreamer-plugins-base1.0-dev
+- 그래픽 툴킷 GTK 설치
+    - sudo apt install libgtk-3-dev
+- 최적화 관련 패키지 및 python3 개발 환경을 위한 패키지
+    - sudo apt install libatlas-base-dev libeigen3-dev gfortran
+    - sudo apt install python3-dev python3-numpy libtbb2 libtbb-dev
+- 
 
 
