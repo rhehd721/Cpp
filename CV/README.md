@@ -54,6 +54,14 @@
 Window
 - [OpenCV 4.0.0 Download](http://www.github.com/opencv/opencv/releases/tag/4.0.0)
 
+Mac
+- brew install opencv
+    - /usr/local/Cellar/opencv/ 경로에 설치
+- OpenCV 환경설정
+- brew install pkg-config
+- 환경변수 설정
+    - $ export PKG_CONFIG_PATH=/usr/local/Cellar/opencv/4.5.1_3/lib/pkgconfig
+
 Linux (560p 참조)
 - 업데이트
     - sudo apt update
