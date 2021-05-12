@@ -53,7 +53,8 @@
 # OpenCV 설치
 Window
 - [OpenCV 4.0.0 Download](http://www.github.com/opencv/opencv/releases/tag/4.0.0)
-Linux
+
+Linux (560p 참조)
 - 업데이트
     - sudo apt update
     - sudo apt upgrade
@@ -71,6 +72,20 @@ Linux
 - 최적화 관련 패키지 및 python3 개발 환경을 위한 패키지
     - sudo apt install libatlas-base-dev libeigen3-dev gfortran
     - sudo apt install python3-dev python3-numpy libtbb2 libtbb-dev
-- 
-
-
+- download opensource module
+    - wget -O opencv-4.0.0.zip https://github.com/opencv/opencv/archive/4.0.0.zip
+    - wget -O opencv_contrib-4.0.0.zip https://github.com/opencv/opencv_contrib/archive/4.0.0.zip
+    - wget == 웹 서버에서 특정 파일을 다운받는 명령어
+- unzip
+    - unzip opencv-4.0.0.zip
+    - unzip opencv_contrib-4.0.0.zip
+- cmake
+```cmd
+cmake \ 
+-D CMAKE_BUILD_TYPE=Release \
+-D CMAKE_INSTALL_PREFIX=/usr/local \
+-D BUILD_WITH_DEBUG_INFO=OFF \
+.
+.
+.
+```
