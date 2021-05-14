@@ -10,9 +10,9 @@
 
 using namespace std;
 
-int Find_MaxNum(vector<vector<int> > & Num, int index, int Max_index, queue<int> & result, int Currently_num){
-    Currently_num += Num[index][index];
-    if(index == Max_index){
+int Find_MaxNum(vector<vector<int> > & triangle, int Height, int index, int Max_index, queue<int> & result, int Currently_num){
+    Currently_num += triangle[Height][Height];
+    if(Height == Max_index){
         result.push(Currently_num);
     }
     else{
@@ -25,11 +25,9 @@ int Find_MaxNum(vector<vector<int> > & Num, int index, int Max_index, queue<int>
 int solution(vector<vector<int> > triangle) {
     int answer(0);
 
-    queue<int> result;
+    queue<int> result;  // 만들수 있는 모든 숫자??
     
-    // 만들 수 있는 숫자들을 모두 넣어준다.
-    
-    Find_MaxNum(triangle, 0 , triangle.size(), result, 0);
+    Find_MaxNum(triangle, 0 ,0, triangle.size(), result, 0);
     
     answer = result.back();
 
