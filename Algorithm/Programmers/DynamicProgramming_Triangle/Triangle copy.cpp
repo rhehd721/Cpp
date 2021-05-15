@@ -10,7 +10,7 @@
 
 using namespace std;
 
-int Find_MaxNum(vector<vector<int> > & triangle, int Height, int index, int Max_index, queue<int> & result, int Currently_num){
+int Find_MaxNum(vector<vector<int> > & triangle, int Height, int index, int Max_Height, queue<int> & result, int Currently_num){
     Currently_num += triangle[Height][Height];
     if(Height == Max_index){
         result.push(Currently_num);
