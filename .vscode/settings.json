@@ -1,0 +1,26 @@
+{
+    "files.associations": {
+        "*.html": "html",
+        "iostream": "cpp",
+        "ostream": "cpp",
+        "vector": "cpp",
+        "*.tcc": "cpp",
+        "string": "cpp",
+        "unordered_map": "cpp",
+        "string_view": "cpp",
+        "span": "cpp",
+        "type_traits": "cpp",
+        "deque": "cpp",
+        "chrono": "cpp",
+        "random": "cpp",
+        "limits": "cpp",
+        "valarray": "cpp",
+        "functional": "cpp",
+        "initializer_list": "cpp",
+        "ratio": "cpp",
+        "iosfwd": "cpp",
+        "numbers": "cpp",
+        "queue": "cpp",
+        "variant": "cpp"
+    }
+}
