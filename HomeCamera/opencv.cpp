@@ -1,9 +1,8 @@
-// #include <opencv2/opencv.hpp>
+#include <opencv2/opencv.hpp>
 #include <opencv2/core/core.hpp>
-// #include <opencv2/highgui/highgui.hpp>
+#include <opencv2/highgui/highgui.hpp> 
 
 
- 
 using namespace cv;
  
 int main() {
@@ -25,7 +24,7 @@ int main() {
         hconcat(img, img2, img);
  
         resize(img, img, Size(600, 300), 0, 0, INTER_CUBIC); // 사진으로 저장할 때는 크기를 downsizing해서 저장한다
-        sprintf(savefile, "./image/image%d.jpg", count++);
+        sprintf(savefile, "./image/test.jpeg", count++);
         imwrite(savefile, img);        // img를 파일로 저장한다.
  
         if (waitKey(100) == 27)  break; // esc를 누르면 종료한다
